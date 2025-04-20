@@ -6,7 +6,7 @@
 
 # Clone this repository
 $ git clone <repository_url>
-git clone https://github.com/noraphat/project-mini-ecommerce.git
+git clone https://github.com/noraphat/project-ecom-soa.git
 
 
 $ cd <repository_folder>
@@ -15,44 +15,47 @@ cd project-mini-ecommerce\Backend-FastAPI
 
 ## 📂 โครงสร้างโปรเจกต์
 ```
-project-mini-ecommerce/
-│── Backend-FastAPI/                     # 📂 ส่วนของ Backend (FastAPI)
-│   │── main.py                          # 🔥 FastAPI Entry Point
-│   │── database.py                      # 🔗 เชื่อมต่อ MySQL
-│   │── auth.py                          # 🔒 จัดการ JWT Authentication
-│   │── schema.sql                       # 💾 คำสั่ง SQL สำหรับสร้างฐานข้อมูล
-│   │── models/                          # 📂 จัดการ Model ของ Database
-│   │   ├── user.py                      # 👤 จัดการข้อมูล User
-│   │   ├── product.py                   # 🛍️ จัดการข้อมูล Product
-│   │   ├── product_image.py             # 🖼️ จัดการข้อมูลรูปภาพสินค้า
-│   │   ├── order.py                     # 📦 จัดการข้อมูล Order
-│   │── routers/                         # 📂 API Endpoint
-│   │   ├── user.py                      # 👤 API สำหรับ User Management
-│   │   ├── product.py                   # 🛍️ API สำหรับ Product Management
-│   │   ├── product_image.py             # 🖼️ API สำหรับจัดการรูปภาพสินค้า
-│   │   ├── order.py                     # 📦 API สำหรับจัดการ Order
-│   │── schemas/                         # 📂 Pydantic Schemas
-│   │   ├── user.py                      # 🏗️ Schema สำหรับ User
-│   │   ├── product.py                   # 🏗️ Schema สำหรับ Product
-│   │   ├── product_image.py             # 🏗️ Schema สำหรับรูปภาพสินค้า
-│   │   ├── order.py                     # 🏗️ Schema สำหรับ Order
-│   │── uploads/                         # 📂 โฟลเดอร์เก็บรูปภาพสินค้า
-│   │   ├── products/                    # 🖼️ รูปภาพสินค้า
-│   │── templates/                       # 📂 เทมเพลตสำหรับส่วน Frontend
-│   │   ├── base.html                    # 🏗️ เทมเพลตหลัก
-│   │   ├── components/                  # 📂 คอมโพเนนต์ย่อยสำหรับเทมเพลต
-│   │   │   ├── header.html              # 🔝 ส่วน Header
-│   │   │   ├── navbar.html              # 🧭 เมนูนำทาง
-│   │   │   ├── footer.html              # 👣 ส่วน Footer
-│   │   │   └── _recent_activity.html    # 🔄 ส่วนแสดงกิจกรรมล่าสุด
-│   │   └── admin/                       # 📂 เทมเพลตสำหรับส่วน Admin
-│   │       ├── login.html               # 🔐 หน้า Login
-│   │       └── dashboard.html           # 📊 หน้า Dashboard
-│── Vue/                                 # 📂 ส่วนของ Frontend (Vue.js)
-│   │── my-vue-app/                      # 🖥️ Vue Project
-│── .gitignore                           # 🚫 ไฟล์ที่ไม่ต้องการให้ Git ติดตาม
-│── requirements.txt                     # 📜 รายการ Python Packages
-│── README.md                            # 📖 คำอธิบายโปรเจค
+project-ecom-soa/
+│── .github/                         # 🗂️ โฟลเดอร์หลักสำหรับ GitHub Configuration
+│   ├── workflows                    # 🔄 กำหนด Workflow สำหรับ GitHub Actions
+│   │   ├── main.yml                 # 🤖 ไฟล์ CI Workflow หลัก (เช่น รันเทส, build Docker)
+│── main.py                          # 🔥 FastAPI Entry Point
+│── database.py                      # 🔗 เชื่อมต่อ MySQL
+│── auth.py                          # 🔒 จัดการ JWT Authentication
+│── schema.sql                       # 💾 คำสั่ง SQL สำหรับสร้างฐานข้อมูล
+│── models/                          # 📂 จัดการ Model ของ Database
+│   ├── user.py                      # 👤 จัดการข้อมูล User
+│   ├── product.py                   # 🛍️ จัดการข้อมูล Product
+│   ├── product_image.py             # 🖼️ จัดการข้อมูลรูปภาพสินค้า
+│   ├── order.py                     # 📦 จัดการข้อมูล Order
+│── routers/                         # 📂 API Endpoint
+│   ├── user.py                      # 👤 API สำหรับ User Management
+│   ├── product.py                   # 🛍️ API สำหรับ Product Management
+│   ├── product_image.py             # 🖼️ API สำหรับจัดการรูปภาพสินค้า
+│   ├── order.py                     # 📦 API สำหรับจัดการ Order
+│── schemas/                         # 📂 Pydantic Schemas
+│   ├── user.py                      # 🏗️ Schema สำหรับ User
+│   ├── product.py                   # 🏗️ Schema สำหรับ Product
+│   ├── product_image.py             # 🏗️ Schema สำหรับรูปภาพสินค้า
+│   ├── order.py                     # 🏗️ Schema สำหรับ Order
+│── uploads/                         # 📂 โฟลเดอร์เก็บรูปภาพสินค้า
+│   ├── products/                    # 🖼️ รูปภาพสินค้า
+│── templates/                       # 📂 เทมเพลตสำหรับส่วน Frontend
+│   ├── base.html                    # 🏗️ เทมเพลตหลัก
+│   ├── components/                  # 📂 คอมโพเนนต์ย่อยสำหรับเทมเพลต
+│   │   ├── header.html              # 🔝 ส่วน Header
+│   │   ├── navbar.html              # 🧭 เมนูนำทาง
+│   │   ├── footer.html              # 👣 ส่วน Footer
+│   │   └── _recent_activity.html    # 🔄 ส่วนแสดงกิจกรรมล่าสุด
+│   └── admin/                       # 📂 เทมเพลตสำหรับส่วน Admin
+│       ├── login.html               # 🔐 หน้า Login
+│       └── dashboard.html           # 📊 หน้า Dashboard
+│── .gitignore                       # 🚫 ไฟล์ที่ไม่ต้องการให้ Git ติดตาม
+│── requirements.txt                 # 📜 รายการ Python Packages
+│── README.md                        # 📖 คำอธิบายโปรเจค
+│── schema.sql                       # 🧱 คำสั่ง SQL สำหรับสร้างตารางและโครงสร้างฐานข้อมูล
+│── Dockerfile                       # 🐳 สคริปต์สำหรับสร้าง Docker Image ของ FastAPI Application
+│── docker-compose.yml               # 🛠️ กำหนดบริการ (FastAPI + MySQL) เพื่อให้ทำงานร่วมกันด้วย Docker
 ```
 
 ## 🛠️ การติดตั้ง Dependencies
