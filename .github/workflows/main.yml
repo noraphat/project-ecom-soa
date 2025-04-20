@@ -115,6 +115,8 @@ jobs:
             rm -rf project-ecom-soa
             git clone https://github.com/noraphat/project-ecom-soa.git
             cd project-ecom-soa
+            sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
             docker-compose pull
             docker-compose up -d
           EOF
