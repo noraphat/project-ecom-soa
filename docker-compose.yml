@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # FastAPI application
   backend:
-    build: .
+    image: noraphat/project-ecom-soa:latest
     container_name: fastapi_app
     ports:
       - "8000:8000"
