@@ -110,6 +110,13 @@ jobs:
 
       - name: Connect & Deploy
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} \
-            'cd /app && docker-compose pull && docker-compose up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} << 'EOF'
+            cd /root || mkdir -p /root && cd /root
+            rm -rf project-ecom-soa
+            git clone https://github.com/noraphat/project-ecom-soa.git
+            cd project-ecom-soa
+            docker-compose pull
+            docker-compose up -d
+          EOF
+        
 
