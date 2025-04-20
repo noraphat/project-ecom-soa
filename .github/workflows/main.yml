@@ -117,6 +117,8 @@ jobs:
             cd project-ecom-soa
             sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
             sudo chmod +x /usr/local/bin/docker-compose
+            sudo apt update
+            sudo apt install docker.io -y
             sudo systemctl start docker
             docker-compose pull
             docker-compose up -d
